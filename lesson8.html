@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson8</title>
+  </head>
+  <body>
+    <script>
+      const product = {
+        name: "basketball",
+        price: 2095,
+        "delivery-time": "3 days",
+      };
+
+      console.log(product);
+
+      product.price += 500;
+
+      console.log(product);
+
+      console.log(product["delivery-time"]);
+
+      product1 = {
+        name: "T-shirt",
+        price: 2000,
+      };
+      product2 = {
+        name: "T-shirt",
+        price: 2000,
+      };
+
+      //   product2 = {
+      //     name: "shorts",
+      //     price: 3000,
+      //   };
+
+      //   function comparePrice(product1, product2) {
+      //     if (product1.price < product2.price) {
+      //       return product1;
+      //     } else {
+      //       return product2;
+      //     }
+      //   }
+
+      //   console.log(comparePrice(product1, product2));
+
+      function isSameProduct(product1, product2) {
+        if (
+          product1.name === product2.name &&
+          product2.price === product1.price
+        ) {
+          return true;
+        } else return false;
+      }
+
+      console.log(isSameProduct(product1, product2));
+
+      console.log("Good Morning".toLowerCase());
+
+      console.log("test".repeat(3));
+    </script>
+  </body>
+</html>

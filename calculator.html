@@ -115,6 +115,9 @@
         onclick="
         calculation=eval(calculation);
         console.log(calculation)
+       saveToLocalStorage();
+
+        
         "
       >
         =
@@ -127,13 +130,30 @@
         /
       </button>
     </p>
+    <p>
+      <button
+        onclick="
+        calculation='';
+        console.log(calculation);
+       saveToLocalStorage();
+        "
+      >
+        clear
+      </button>
+    </p>
 
     <script>
-      let calculation = "";
+      let calculation = localStorage.getItem("calculation") || "";
 
       function updateCalculation(value) {
         calculation += value;
         console.log(calculation);
+
+        saveToLocalStorage();
+      }
+
+      function saveToLocalStorage() {
+        localStorage.setItem("calculation", calculation);
       }
     </script>
   </body>
