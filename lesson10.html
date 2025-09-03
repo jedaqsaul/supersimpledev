@@ -19,7 +19,9 @@
       }
 
       .request-button,
-      .gaming-button {
+      .gaming-button,
+      .music-button,
+      .tech-button {
         padding: 14px 20px;
         font-weight: bold;
         font-size: 13px;
@@ -52,26 +54,43 @@
 
     <p>10d</p>
 
-    <button class="js-gaming-button gaming-button" onclick="toggleButton()">
+    <button
+      class="js-gaming-button gaming-button"
+      onclick="toggleButton('.js-gaming-button')"
+    >
       Gaming
     </button>
-    <button class="js-music-button music-button" onclick="toggleButton()">
+    <button
+      class="js-music-button music-button"
+      onclick="toggleButton('.js-music-button')"
+    >
       Music
     </button>
-    <button class="js-Tech-button tech-button" onclick="toggleButton()">
+    <button
+      class="js-tech-button tech-button"
+      onclick="toggleButton('.js-tech-button')"
+    >
       Tech
     </button>
 
     <script>
       const testButton = document.querySelector(".js-button");
 
-      function toggleButton() {
-        const gamingButton = document.querySelector(".js-gaming-button");
+      function toggleButton(selector) {
+        const button = document.querySelector(selector);
 
-        if (gamingButton.classList.contains("is-toggled") === false) {
-          gamingButton.classList.add("is-toggled");
+        if (button.classList.contains("is-toggled") === false) {
+          turnOffPreviousButton();
+          button.classList.add("is-toggled");
         } else {
-          gamingButton.classList.remove("is-toggled");
+          button.classList.remove("is-toggled");
+        }
+      }
+
+      function turnOffPreviousButton() {
+        const previousButton = document.querySelector(".is-toggled");
+        if (previousButton) {
+          previousButton.classList.remove("is-toggled");
         }
       }
     </script>

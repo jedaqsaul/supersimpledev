@@ -4,11 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
+    <style>
+      body {
+        font-family: Arial;
+      }
+
+      button {
+        width: 70px;
+        height: 70px;
+        border-radius: 35px;
+        margin-right: 7px;
+        border: none;
+        font-weight: bold;
+        color: white;
+        font-size: 35px;
+      }
+      .gray-button {
+        background-color: gray;
+      }
+      .orange-button {
+        background-color: rgba(236, 171, 50, 0.877);
+      }
+      .clear-button {
+        font-size: 17px;
+      }
+      .display-calculation {
+        font-size: 30px;
+      }
+    </style>
   </head>
   <body>
-    <p class="js-display-calculation"></p>
+    <p class="js-display-calculation display-calculation"></p>
     <p>
       <button
+        class="gray-button"
         onclick="
         updateCalculation('1')
         "
@@ -16,6 +45,7 @@
         1
       </button>
       <button
+        class="gray-button"
         onclick="
         updateCalculation('2')
         "
@@ -23,6 +53,7 @@
         2
       </button>
       <button
+        class="gray-button"
         onclick="
         updateCalculation('3')
         "
@@ -30,6 +61,7 @@
         3
       </button>
       <button
+        class="orange-button"
         onclick="
         updateCalculation('+')
         "
@@ -39,6 +71,7 @@
     </p>
     <p>
       <button
+        class="gray-button"
         onclick="
         updateCalculation('4')
         "
@@ -46,6 +79,7 @@
         4
       </button>
       <button
+        class="gray-button"
         onclick="
         updateCalculation('5')
         "
@@ -53,6 +87,7 @@
         5
       </button>
       <button
+        class="gray-button"
         onclick="
         updateCalculation('6')
         "
@@ -60,6 +95,7 @@
         6
       </button>
       <button
+        class="orange-button"
         onclick="
         updateCalculation('-')
         "
@@ -69,6 +105,7 @@
     </p>
     <p>
       <button
+        class="gray-button"
         onclick="
         updateCalculation('7')
         "
@@ -76,6 +113,7 @@
         7
       </button>
       <button
+        class="gray-button"
         onclick="
         updateCalculation('8')
         "
@@ -83,6 +121,7 @@
         8
       </button>
       <button
+        class="gray-button"
         onclick="
         updateCalculation('9')
         "
@@ -90,6 +129,7 @@
         9
       </button>
       <button
+        class="orange-button"
         onclick="
         updateCalculation('*')
         "
@@ -99,6 +139,7 @@
     </p>
     <p>
       <button
+        class="gray-button"
         onclick="
         updateCalculation('0')
         "
@@ -106,6 +147,7 @@
         0
       </button>
       <button
+        class="gray-button"
         onclick="
         updateCalculation('.')
         "
@@ -113,6 +155,7 @@
         .
       </button>
       <button
+        class="gray-button"
         onclick="
         calculation=eval(calculation);
        displayCalculation();
@@ -124,6 +167,7 @@
         =
       </button>
       <button
+        class="orange-button"
         onclick="
         updateCalculation('/')
         "
@@ -133,6 +177,7 @@
     </p>
     <p>
       <button
+        class="gray-button clear-button"
         onclick="
         calculation='';
         displayCalculation();

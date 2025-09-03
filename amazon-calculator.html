@@ -23,6 +23,10 @@
         border: none;
         cursor: pointer;
       }
+
+      .error-display {
+        color: red;
+      }
     </style>
   </head>
   <body>
@@ -51,12 +55,19 @@
       function calculateTotal() {
         const inputElement = document.querySelector(".js-cost-input");
         let cost = Number(inputElement.value);
+        const displayCost = document.querySelector(".js-total-cost");
+
+        if (cost <= 0) {
+          displayCost.innerHTML = "Error: cost cannot be less than $0";
+          displayCost.classList.add("error-display");
+          return;
+        }
 
         if (cost < 40) {
           cost += 10;
         }
-
-        document.querySelector(".js-total-cost").innerHTML = `$${cost}`;
+        displayCost.classList.remove("error-display");
+        displayCost.innerHTML = `$${cost}`;
       }
     </script>
   </body>
