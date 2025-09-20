@@ -9,17 +9,84 @@ scoreCount();
 let isAutoPlaying = false;
 let intervalId;
 
+// const autoPlay=()=>{
+// if (!isAutoPlaying) {
+//     intervalId = setInterval(() => {
+//       const playerMove = pickComputerMove();
+//       playGame(playerMove);
+//     }, 1000);
+//     isAutoPlaying = true;
+//   } else {
+//     clearInterval(intervalId);
+//     isAutoPlaying = false;
+//   }
+// }
+
 function autoPlay() {
   if (!isAutoPlaying) {
-    intervalId = setInterval(function () {
+    intervalId = setInterval(() => {
       const playerMove = pickComputerMove();
       playGame(playerMove);
     }, 1000);
+    document.querySelector(".js-autoplay-button").innerHTML = " Stop Playing";
     isAutoPlaying = true;
   } else {
+    document.querySelector(".js-autoplay-button").innerHTML = " Auto Play";
     clearInterval(intervalId);
     isAutoPlaying = false;
   }
+}
+
+document.querySelector(".js-rock-button").addEventListener("click", () => {
+  playGame("rock");
+});
+
+document.body.addEventListener("keydown", (event) => {
+  if (event.key === "p") {
+    playGame("paper");
+  } else if (event.key === "s") {
+    playGame("scissors");
+  } else if (event.key === "r") {
+    playGame("rock");
+  } else if (event.key === "a") {
+    autoPlay();
+  } else if (event.key === "Backspace") {
+    resetScore();
+  }
+});
+
+document.querySelector(".js-paper-button").addEventListener("click", () => {
+  playGame("paper");
+});
+document.querySelector(".js-scissors-button").addEventListener("click", () => {
+  playGame("scissors");
+});
+document.querySelector(".js-reset-button").addEventListener("click", () => {
+  resetScore();
+});
+document.querySelector(".js-autoplay-button").addEventListener("click", () => {
+  autoPlay();
+});
+
+function resetScore() {
+  const displayMessage = document.querySelector(".js-confirm-reset");
+
+  displayMessage.innerHTML = `Are you sure you want to reset the score <button class="js-yes-button">Yes</button> <button class="js-no-button"> No</button> `;
+
+  document.querySelector(".js-yes-button").addEventListener("click", () => {
+    score.wins = 0;
+    score.losses = 0;
+    score.ties = 0;
+    localStorage.removeItem("score");
+
+    scoreCount();
+    displayMessage.innerHTML = "";
+  });
+
+  document.querySelector(".js-no-button").addEventListener("click", () => {
+    scoreCount();
+    displayMessage.innerHTML = "";
+  });
 }
 
 function playGame(playerMove) {
