@@ -33,7 +33,8 @@ body {
   margin-top: 60px;
 }
 
-.reset-score {
+.reset-score,
+.auto-play-button {
   border: none;
   background-color: white;
   padding: 8px 15px;

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson11b</title>
+    <style></style>
+  </head>
+  <body>
+    <script>
+      const stringArray = ["hello", "world", "good", "search"];
+      let index = -1;
+      for (let i = 0; i < stringArray.length; i++) {
+        if (stringArray[i] === "search") {
+          index = i;
+          break;
+        }
+      }
+      console.log(index);
+
+      console.log("11p");
+
+      //   function findIndex(array, word) {
+      //     for (let i = 0; i < array.length; i++) {
+      //       const value = array[i];
+
+      //       if (value === word) {
+      //         return i;
+      //       }
+      //     }
+      //     return -1;
+      //   }
+
+      //   console.log("11q");
+
+      //   console.log(findIndex(["green", "blue", "red"], "red"));
+      //   console.log(findIndex(["green", "red", "blue"], "yellow"));
+
+      function removeEgg(foods) {
+        // let result = [];
+        // let eggCount = 0;
+        // for (let i = 0; i < foods.length; i++) {
+        //   const food = foods[i];
+        //   if (food === "egg" && eggCount < 2) {
+        //     eggCount++;
+        //     continue;
+        //   }
+        //   result.push(food);
+        // }
+        // return result;
+        // const newArray = foods.reverse();
+        // let result = [];
+        // let eggCount = 0;
+        // for (let i = 0; i < newArray.length; i++) {
+        //   const food = newArray[i];
+        //   if (food === "egg" && eggCount < 2) {
+        //     eggCount++;
+        //     continue;
+        //   }
+        //   result.push(food);
+        // }
+        // return result.reverse();
+
+        const newArray = foods.slice();
+
+        const newArrayReversed = newArray.reverse();
+        let result = [];
+        let eggCount = 0;
+        for (let i = 0; i < newArrayReversed.length; i++) {
+          const food = newArrayReversed[i];
+          if (food == "egg" && eggCount < 2) {
+            eggCount++;
+            continue;
+          }
+          result.push(food);
+        }
+        return result.reverse();
+      }
+      console.log(removeEgg(["egg", "apple", "egg", "egg", "ham"]));
+
+      console.log("Challenge Exercises below");
+
+      for (let i = 1; i <= 20; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+          console.log("FizzBuzz");
+          continue;
+        } else if (i % 3 === 0) {
+          console.log("Fizz");
+          continue;
+        } else if (i % 5 === 0) {
+          console.log("Buzz");
+          continue;
+        }
+        console.log(i);
+      }
+
+      function findIndex(array, word) {
+        for (let i = 0; i < array.length; i++) {
+          const value = array[i];
+
+          if (value === word) {
+            return i;
+          }
+        }
+        return -1;
+      }
+
+      function unique(array) {
+        let result = [];
+        for (let i = 0; i < array.length; i++) {}
+        return result;
+      }
+
+      console.log(unique(["green", "red", "blue", "red"]));
+    </script>
+  </body>
+</html>
